@@ -1,3 +1,7 @@
-`from CIANparser import Parser`\n
-`db = Parser.run(Parser, 1, 3)`\n
-`print(db)`\n
+# Example
+
+```
+from CIANparser import Parser
+db = Parser.run(Parser, 1, 3)
+print(db)
+```
