@@ -2,6 +2,6 @@
 
 ```
 from CIANparser import Parser
-db = Parser.run(Parser, 1, 3)
+db = Parser.run(Parser, start_page = 1, end_page = 100)
 print(db)
 ```
