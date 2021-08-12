@@ -1,4 +1,4 @@
-base_url = 'https://www.cian.ru/cat.php?deal_type=sale&engine_version=2&offer_type=flat&region=1&p={}'
+base_url = 'http://www.cian.ru/cat.php?deal_type=sale&engine_version=2&offer_type=flat&region=1&p={}'
 
 def generate_url(page: int) -> str:
     return base_url.format(page)

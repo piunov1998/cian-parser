@@ -1,6 +1,5 @@
-import URLgenerator
-from searchpageparser import searchParser
-from flatpageparser import offerParser
+import URLgenerator, time, random, sys
+from pageparser import offerParser, searchParser
 
 class Parser:
 
@@ -14,12 +13,11 @@ class Parser:
         for page in range(start_page, end_page + 1):
             print('Generating URL...')
             url = URLgenerator.generate_url(page)
-            for offer_link in searchParser.get_data(searchParser, url):
+            search_results = searchParser.get_data(searchParser, url)
+            if len(search_results) == 0:
+                sys.exit('Capcha detected. Breaking work..')
+            for offer_link in search_results:
                 print(f'Parsing {offer_link}')
                 db.update({offer_link : offerParser.get_data(offerParser, offer_link)})
+                time.sleep(5.0 + random.randint(0, 3) + random.random())
         return db
-
-
-    # def data_formatter(self, url: str, data: dict) -> dict:
-    #     self.db[url] = offerParser.get_data(offerParser, url)
-        
